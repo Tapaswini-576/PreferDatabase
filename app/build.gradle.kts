@@ -2,21 +2,20 @@ plugins {
     id("com.android.application")
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    alias(libs.plugins.googleServices)
-    id("com.google.gms.google-services")
+    alias(libs.plugins.googleServices) // KEEP THIS ONE
     id("kotlin-kapt")
-    id("com.google.gms.google-services") version "4.4.3" apply false
+    // REMOVE THIS LINE: id("com.google.gms.google-services") version "4.4.3" apply false
 }
 
 
 android {
     namespace = "com.example.preferdatabase"
-    compileSdk = 35
+    compileSdk = 35 // Current compileSdk
 
     defaultConfig {
-        applicationId = "com.example.preferdatabase"
+        applicationId = "com.example.preferdatabase" // This must match your Firebase project's package name
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 35 // Current targetSdk
         versionCode = 1
         versionName = "1.0"
 
@@ -65,15 +64,18 @@ dependencies {
 
     //Room
     val room_version = "2.6.1"
-
     implementation("androidx.room:room-runtime:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
-    kapt("androidx.room:room-compiler:$room_version")
+    kapt("androidx.room:room-compiler:$room_version") // Ensure you have the 'kotlin-kapt' plugin applied for this
 
     //firebase
+    // Make sure your firebase-bom version is up-to-date.
+    // As of my last update, 33.16.0 is relatively recent. You can check the latest on Firebase docs.
     implementation(platform("com.google.firebase:firebase-bom:33.16.0"))
-    // Auth
+    // Auth (Firebase recommended using -ktx for Kotlin projects)
     implementation("com.google.firebase:firebase-auth-ktx")
-    // Firestore
+    // Analytics (You had this without -ktx, which is fine, it usually doesn't have a -ktx variant)
     implementation("com.google.firebase:firebase-analytics")
+    // If you plan to use Firestore, you'd add:
+    // implementation("com.google.firebase:firebase-firestore-ktx")
 }
