@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "961270338005",
+    "project_id": "preferdatabase",
+    "storage_bucket": "preferdatabase.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:961270338005:android:f0ed6b61f9fa690e58ed5c",
+        "android_client_info": {
+          "package_name": "com.example.preferdatabase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0KP3WSNX1qFhyBeCKpvyz2LDMGCcDT2w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

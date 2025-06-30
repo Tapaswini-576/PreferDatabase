@@ -1,9 +1,11 @@
 plugins {
-    alias(libs.plugins.android.application)
+    id("com.android.application")
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.googleServices)
+    id("com.google.gms.google-services")
     id("kotlin-kapt")
+    id("com.google.gms.google-services") version "4.4.3" apply false
 }
 
 
@@ -60,6 +62,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.1")
+
     //Room
     val room_version = "2.6.1"
 
@@ -68,9 +71,9 @@ dependencies {
     kapt("androidx.room:room-compiler:$room_version")
 
     //firebase
-    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+    implementation(platform("com.google.firebase:firebase-bom:33.16.0"))
     // Auth
     implementation("com.google.firebase:firebase-auth-ktx")
     // Firestore
-    implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation("com.google.firebase:firebase-analytics")
 }
